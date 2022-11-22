@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import {HotelOwners} from './components/HotelOwners';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('tests the hotel owner component', () => {
+  render(<HotelOwners />);
+  const linkElement = screen.getByTestId("testing");
+  // expect(linkElement).toBeInTheDocument();
+  expect(linkElement).toHaveTextContent("Hotel Owner Table");
 });

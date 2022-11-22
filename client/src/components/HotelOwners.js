@@ -64,7 +64,7 @@ const deleteHotelOwner = async (id) => {
 
     
 
-    <div className="mt-5">
+    <div className="mt-5" data-testid = "testing">
      
       <div className="container">
 
