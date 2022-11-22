@@ -1,10 +1,12 @@
 import React,{useState,useEffect} from "react";
-import { NavLink, useParams, useHistory } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
 
 const EditHotelOwner = () => {
-    const [hotelOwners, setHotelOwners] = useState([]);
-    console.log(hotelOwners);
+    // const [hotelOwners, setHotelOwners] = useState([]);
+    // console.log(hotelOwners);
+
+    
 
     const [inpval, setINP] = useState({
         hotelOwnerName: "",
@@ -44,7 +46,7 @@ const EditHotelOwner = () => {
             
             console.log("error");
         }else{
-            setHotelOwners(data);
+            setINP(data);
             console.log("Data Read");
         }
             
@@ -56,6 +58,32 @@ const EditHotelOwner = () => {
         getdata();
     },[]);
 
+    const updateHotelOwner = async(e)=>{
+        e.preventDefault();
+
+        const { hotelOwnerName,hotelName,hotelContact,hotelTotalRooms,hotelEmail} = inpval;
+
+        const res2 = await fetch(`http://localhost:8003/edithotelowners/${id}`,{
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify({
+                hotelOwnerName,hotelName,hotelContact,hotelTotalRooms,hotelEmail
+            })
+        });
+
+        const data2 = await res2.json();
+        console.log(data2);
+
+        if(res2.status === 422 || !data2){
+            alert("fill the data");
+        }else{
+            alert("data added successfully");
+            
+        }
+
+    }
 
   return (
     <div className="container">
@@ -83,7 +111,7 @@ const EditHotelOwner = () => {
                 <input type="text" value={inpval.hotelEmail} onChange={setdata} name="hotelEmail" className="form-control" id="exampleInputPassword1" />
             </div>
 
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" onClick={updateHotelOwner} className="btn btn-primary">Submit</button>
         </div>
     </form>
 </div>

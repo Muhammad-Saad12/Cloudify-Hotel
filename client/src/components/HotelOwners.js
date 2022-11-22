@@ -38,14 +38,41 @@ useEffect(() => {
   getdata();
 }, []);
 
+const deleteHotelOwner = async (id) => {
+
+  const res2 = await fetch(`http://localhost:8003/deleteHotelOwner/${id}`, {
+      method: "DELETE",
+      headers: {
+          "Content-Type": "application/json"
+      }
+  });
+
+  const deletedata = await res2.json();
+  console.log(deletedata);
+
+  if (res2.status === 422 || !deletedata) {
+      console.log("error");
+  } else {
+      console.log("user deleted");
+      getdata();
+  }
+
+}
+
 
   return (
+
+    
+
     <div className="mt-5">
+     
       <div className="container">
+
         <div className="add_btn mt-2 mb-2">
+       
           <NavLink to="/registerhotelowners" className="btn btn-primary">Add Hotel Owner</NavLink>
         </div>
-
+        <h2 className="mb-7">Hotel Owner Table</h2>
         <table class="table">
           <thead>
             <tr className="table-primary">
@@ -74,7 +101,7 @@ useEffect(() => {
               <td className="d-flex justify-content-between">
                <NavLink to={`readhotelowners/${element._id}`}> <button className="btn btn-success"><RemoveRedEyeIcon/></button> </NavLink> 
                <NavLink to={`edithotelowners/${element._id}`}><button className="btn btn-primary"><EditIcon/></button></NavLink> 
-                <button className="btn btn-danger"><DeleteSweepIcon/></button>
+                <button className="btn btn-danger" onClick={()=>deleteHotelOwner(element._id)}><DeleteSweepIcon/></button>
               </td>
             </tr>
                 </>
@@ -87,5 +114,6 @@ useEffect(() => {
         </table>
       </div>
     </div>
+    
   );
 };

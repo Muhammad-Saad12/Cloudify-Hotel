@@ -65,4 +65,37 @@ router.get("/readhotelowners/:id",async(req,res)=>{
 
 })
 
+// update hotelOwners
+
+router.patch("/edithotelowners/:id",async(req,res)=>{
+    try {
+        const {id} = req.params;
+
+        const updateHotelOwner = await HotelOwner.findByIdAndUpdate(id,req.body,{
+            new:true
+        });
+
+        console.log(updateHotelOwner);
+        res.status(201).json(updateHotelOwner);
+
+    } catch (error) {
+        res.status(422).json(error);
+    }
+})
+
+// delete Hotel Owner
+router.delete("/deleteHotelOwner/:id",async(req,res)=>{
+    try {
+        const {id} = req.params;
+
+        const deletHotelOwner = await HotelOwner.findByIdAndDelete({_id:id})
+        console.log(deletHotelOwner);
+        res.status(201).json(deletHotelOwner);
+
+    } catch (error) {
+        res.status(422).json(error);
+    }
+})
+
+
 module.exports=router;

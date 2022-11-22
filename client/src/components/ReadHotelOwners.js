@@ -50,12 +50,11 @@ const ReadHotelOwners = () => {
   return (
     <div className="container mt-3">
     {/* <h1 style={{ fontWeight: 400 }}>Welcome Admin</h1> */}
-
+    <h2 className="mb-7">Hotel Owner Detail</h2>
     <Card sx={{ maxWidth: 600 }} className="bg-grey border border-success">
         <CardContent>
             <div className="add_btn">
-                <NavLink>  <button className="btn btn-primary mx-2"><EditIcon /></button></NavLink>
-                <button className="btn btn-danger" onClick={console.log("Clicked")}><DeleteSweepIcon /></button>
+                
             </div>
             <div className="row">
                 <div className="left_view col-lg-6 col-md-6 col-12">
