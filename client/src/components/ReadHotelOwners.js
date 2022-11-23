@@ -1,14 +1,10 @@
 import React from 'react'
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
-import CreateIcon from '@mui/icons-material/Create';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import BedIcon from '@mui/icons-material/Bed';
-import { NavLink, useParams, useHistory } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 
 const ReadHotelOwners = () => {
