@@ -30,7 +30,7 @@ const addHotelOwner=async(e)=>{
 
     const {hotelOwnerName,hotelName,hotelContact,hotelTotalRooms,hotelEmail}=inpval;
 
-    const res=await fetch("http://localhost:8003/registerhotelowners",{
+    const res=await fetch("http://43.206.154.206:8003/registerhotelowners",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"

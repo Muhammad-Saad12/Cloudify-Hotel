@@ -12,7 +12,7 @@ export const HotelOwners = () => {
 
   const getdata=async(e)=>{
 
-    const res=await fetch("http://localhost:8003/gethotelowners",{
+    const res=await fetch("http://43.206.154.206:8003/gethotelowners",{
         method:"GET",
         headers:{
             "Content-Type":"application/json"
@@ -40,7 +40,7 @@ useEffect(() => {
 
 const deleteHotelOwner = async (id) => {
 
-  const res2 = await fetch(`http://localhost:8003/deleteHotelOwner/${id}`, {
+  const res2 = await fetch(`http://43.206.154.206:8003/deleteHotelOwner/${id}`, {
       method: "DELETE",
       headers: {
           "Content-Type": "application/json"

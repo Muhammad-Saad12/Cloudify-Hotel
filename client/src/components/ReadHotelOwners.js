@@ -17,7 +17,7 @@ const ReadHotelOwners = () => {
 
     const getdata=async()=>{
 
-        const res=await fetch(`http://localhost:8003/readhotelowners/${id}`,{
+        const res=await fetch(`http://43.206.154.206:8003/readhotelowners/${id}`,{
             method:"GET",
             headers:{
                 "Content-Type":"application/json"
